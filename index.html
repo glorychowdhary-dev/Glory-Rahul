@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 For My Sweetheart 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#ffe6f0, #fff);
+  scroll-behavior: smooth;
+  text-align: center;
+}
+
+section {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ❤️ HEADINGS */
+h1 {
+  color: #ff2f6e;
+  font-size: 38px;
+  animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.intro-text, .final-text {
+  font-size: 22px;
+  color: #444;
+  max-width: 320px;
+}
+
+/* ❤️ CARDS */
+.card {
+  background: white;
+  border-radius: 25px;
+  padding: 15px;
+  max-width: 350px;
+  margin: 25px auto;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #ff2f6e;
+}
+
+/* ❤️ BUTTONS */
+.buttons {
+  position: relative;
+  height: 160px;
+  width: 300px;
+}
+
+button {
+  padding: 14px 30px;
+  font-size: 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+}
+
+#yesBtn {
+  background: #ff2f6e;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.12); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+#noBtn {
+  background: #ddd;
+  color: #555;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.no-text {
+  margin-top: 20px;
+  color: #ff2f6e;
+  font-size: 18px;
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 💖 PAGE 1 -->
+<section class="fade">
+  <h1>💖 Hello My Sweetheart 💖</h1>
+  <p class="intro-text">
+    Every heartbeat of mine  
+    whispers only one name… 💞  
+    This little surprise is just for you 🌸
+  </p>
+</section>
+
+<!-- 💖 PAGE 2 -->
+<section class="fade">
+  <h1>💑 Our Beautiful Memories</h1>
+
+  <div class="card"><img src="pic1.jpg"><div class="caption">✨ First day when we met ✨</div></div>
+  <div class="card"><img src="pic2.jpg"><div class="caption">🚗 Our first car drive 💕</div></div>
+  <div class="card"><img src="pic3.jpg"><div class="caption">💍 First time attending a marriage like a couple</div></div>
+  <div class="card"><img src="pic4.jpg"><div class="caption">🎬 Our first movie date 🍿❤️</div></div>
+  <div class="card"><img src="pic5.jpg"><div class="caption">📱 Our first romantic video call 😘</div></div>
+  <div class="card"><img src="pic6.jpg"><div class="caption">🧸 Cute little us 💞</div></div>
+  <div class="card"><img src="pic7.jpg"><div class="caption">😜 Hehe 😉 I won against you</div></div>
+</section>
+
+<!-- 💖 PAGE 3 -->
+<section class="fade">
+  <h1>💘 Will You Be My Valentine? 💘</h1>
+
+  <p class="final-text">
+    I don’t need forever promises…  
+    Just choose me today, tomorrow, always 💖
+  </p>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="yesClicked()">YES 💝</button>
+    <button id="noBtn" onmouseover="moveNo()">NO 🙈</button>
+  </div>
+
+  <div class="no-text" id="noText">😜 No option for you 💕</div>
+</section>
+
+<script>
+const sections = document.querySelectorAll('.fade');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('show');
+  });
+},{ threshold: 0.3 });
+
+sections.forEach(sec => observer.observe(sec));
+
+function moveNo() {
+  const noBtn = document.getElementById("noBtn");
+  const text = document.getElementById("noText");
+
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 120 - 60;
+
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  text.style.display = "block";
+}
+
+function yesClicked() {
+  alert("💖 Yayyyy Rahul!!! You are officially my Valentine 💘💞");
+}
+</script>
+
+</body>
+</html>
